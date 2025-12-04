@@ -114,8 +114,8 @@ pip install numpy matplotlib
 
 Este proyecto incluye dos formas de ejecutar el inspector de completitud:
 
-1. **Prueba con imagen estática** → [`inspector foto.py`](inspector_foto.py)
-2. **Inspección en tiempo real con webcam** → [`inspector webcam.py`](inspector_webcam.py)
+1. **Prueba con imagen estática** → [`inspector_foto.py`](inspector_foto.py)
+2. **Inspección en tiempo real con webcam** → [`inspector webcam.py`](inspector webcam.py)
 
 Antes de ejecutar cualquier script, asegúrate de:
 
