@@ -125,6 +125,10 @@ Antes de ejecutar cualquier script, asegúrate de:
 
 ### 3.1 Rutas Importantes (MODEL_PATH y IMAGE_PATH)
 
+#### 📥 Descarga del Modelo
+
+El modelo entrenado está disponible en el repositorio: [`best.pt`](best.pt)
+
 Ambas rutas son totalmente **personalizables**.  
 El modelo **NO necesita estar en una carpeta fija**, y la imagen **puede estar en cualquier ubicación** de tu computador.
 
