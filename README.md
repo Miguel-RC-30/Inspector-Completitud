@@ -491,9 +491,9 @@ KIT_DEFINITION = {
 
 <div align="center">
 
-[![Video de Presentación](https://img.shields.io/badge/▶️_Ver_Demo-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](URL_DEL_VIDEO)
+[![Video de Presentación](https://drive.google.com/drive/folders/1RXk7xu1j3GCMyBRRy-pfG9NR_yxp8fPY?usp=sharing)](URL_DEL_VIDEO)
 
-**Duración:** 3-5 minutos | **Contenido:** Funcionamiento completo del sistema
+**Duración:** 15 minutos | **Contenido:** Problema, motivación, dataset, funcionamiento completo y en vivo del sistema conclusiones
 
 </div>
 
