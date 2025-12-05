@@ -1,191 +1,562 @@
-# 🧠 Inspector de Completitud de Kit
+<div align="center">
 
-## ✨ Descripción del Proyecto
+# 🧠 Inspector de Completitud de Kit (YOLOv8)
 
-Este repositorio alberga el proyecto **Inspector de Completitud de Kit**, una aplicación de **Visión Artificial** implementada con la librería **YOLOv8**.
+[![Python](https://img.shields.io/badge/Python-3.10%2B-blue?logo=python&logoColor=white)](https://www.python.org/)
+[![YOLOv8](https://img.shields.io/badge/YOLOv8-Ultralytics-00D4FF?logo=yolo&logoColor=white)](https://github.com/ultralytics/ultralytics)
+[![OpenCV](https://img.shields.io/badge/OpenCV-4.x-green?logo=opencv&logoColor=white)](https://opencv.org/)
+[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-El objetivo es detectar la presencia de un conjunto de objetos predefinidos (un "kit") en tiempo real a través de una webcam, o en imágenes estáticas. El sistema realiza una verificación comparando la detección con una lista de objetos esperados y genera un reporte de tipo *Pass/Fail* (pasa/falla).
+**Sistema de Visión Artificial para verificación automática de completitud de kits**
 
-Los objetos detectados por el modelo entrenado incluyen: `enchufe`, `headset`, `lentes`, `llave`, `lápiz` y `tarjeta`.
+[🎥 Ver Demo](#-video-de-presentación) • [📖 Documentación](#-tabla-de-contenidos) • [🚀 Instalación](#️-5-requisitos-e-instalación) • [💻 Uso](#️-7-uso-del-proyecto)
+
+---
+
+</div>
+
+## 🧾 Descripción General
+
+El **Inspector de Completitud de Kit** es un sistema de visión artificial basado en **YOLOv8** cuyo objetivo es verificar automáticamente si un kit contiene todos los objetos requeridos antes de ser entregado o despachado.
+
+### 🎯 Características Principales
+
+- ✅ **Detección en tiempo real** con webcam
+- 📸 **Análisis de imágenes estáticas**
+- 🤖 **Modelo YOLOv8 personalizado** entrenado con 6 clases
+- ⚡ **Sistema Pass/Fail** automático
+- 📊 **Métricas de rendimiento** (FPS, mAP, Precision, Recall)
+
+### 🎨 Objetos Detectados
+
+El sistema identifica los siguientes objetos:
+
+| Objeto | Descripción |
+|--------|-------------|
+| 🔌 `enchufe` | Enchufe eléctrico |
+| 🎧 `headset` | Audífonos |
+| 👓 `lentes` | Anteojos |
+| 🔑 `llave` | Llave |
+| ✏️ `objects` | Lápiz |
+| 💳 `tarjeta` | Tarjeta |
 
 ---
 
 ## 📖 Tabla de Contenidos
 
-* [1. Requisitos Previos](#1-requisitos-previos)
-* [2. Configuración del Entorno (Anaconda)](#2-configuración-del-entorno-anaconda)
-    * [2.1 Creación del Entorno](#21-creación-del-entorno)
-    * [2.2 Activación del Entorno](#22-activación-del-entorno)
-    * [2.3 Instalación de Dependencias](#23-instalación-de-dependencias)
-* [3. Ejecución del Código](#3-ejecución-del-código)
-    * [3.1 Rutas Importantes](#31-rutas-importantes-model_path-y-image_path)
-    * [3.2 Prueba con Imagen Estática](#32-prueba-con-imagen-estática)
-    * [3.3 Inspección con Webcam](#33-inspección-con-webcam)
-* [4. Video de Presentación](#4-video-de-presentación)
-* [5. Integrantes](#5-integrantes)
-* [6. Licencia](#6-licencia)
+<details open>
+<summary><b>Clic para expandir/contraer</b></summary>
+
+1. [🎯 Objetivos del Proyecto](#-2-objetivos-del-proyecto)
+2. [🗺️ Arquitectura y Flujo del Sistema](#️-3-arquitectura-y-flujo-del-sistema)
+3. [📂 Estructura del Repositorio](#-4-estructura-del-repositorio)
+4. [🛠️ Requisitos e Instalación](#️-5-requisitos-e-instalación)
+5. [📸 Dataset y Entrenamiento](#-6-dataset-y-entrenamiento-del-modelo)
+6. [▶️ Uso del Proyecto](#️-7-uso-del-proyecto)
+7. [📊 Métricas y Resultados](#-8-métricas-y-resultados)
+8. [⚠️ Limitaciones y Trabajo Futuro](#️-9-limitaciones-y-trabajo-futuro)
+9. [👥 Créditos y Autores](#-10-créditos-y-autores)
+
+</details>
 
 ---
 
-## 1. Requisitos Previos
+## 🎯 2. Objetivos del Proyecto
 
-Antes de clonar y ejecutar este repositorio, asegúrate de contar con lo siguiente:
+### 📌 Objetivo General
 
-### 💻 Sistema operativo
+Implementar un modelo de detección de objetos que identifique los componentes de un kit y determine automáticamente si está completo o incompleto.
 
-- Windows 10/11, macOS o alguna distribución de Linux.
-- Se recomienda un equipo con al menos **8 GB de RAM** para trabajar cómodamente con modelos de visión artificial.
+### 🎯 Objetivos Específicos
 
-### 🐍 Python y Anaconda
+<table>
+<tr>
+<td width="50%">
 
-- **Python 3.10 o 3.11** (el entorno se creará con esta versión).
-- **Anaconda o Miniconda** instalado, para gestionar entornos y dependencias de forma aislada.  
-  > Si nunca has usado Anaconda, en el siguiente apartado se explica cómo crear un entorno desde cero.
+**📊 Dataset**
+- Crear dataset personalizado
+- Anotar y limpiar datos
+- Optimizar para diferentes condiciones
 
-### 📦 Herramientas adicionales
+</td>
+<td width="50%">
 
-- (Opcional pero recomendado) **Git** para clonar el repositorio y gestionar versiones.
-- Un editor de código a elección:
-  - Visual Studio Code, PyCharm, o similar.
+**🤖 Modelo**
+- Entrenar YOLOv8 personalizado
+- Optimizar para detección rápida
+- Validar con métricas robustas
 
-### 🎥 Hardware para las pruebas
+</td>
+</tr>
+<tr>
+<td width="50%">
 
-- Para el script de inspección con **webcam**:
-  - Cámara web funcional (integrada o externa).
-- Para el script de prueba con **imagen estática**:
-  - Al menos una imagen de prueba donde aparezcan los objetos del kit.
+**💻 Implementación**
+- Sistema con imagen estática
+- Inspector en tiempo real
+- Comparación con lista esperada
 
-### 🤖 Modelo entrenado
+</td>
+<td width="50%">
 
-- Archivo de modelo YOLOv8 entrenado (por ejemplo: `best.pt`), resultado del entrenamiento del proyecto.
-- Este archivo puede estar ubicado en **cualquier carpeta** de tu equipo; más adelante se explicará cómo configurar la ruta (`MODEL_PATH`) para que el código lo encuentre correctamente.
+**📈 Evaluación**
+- Medir métricas de desempeño
+- Documentar proceso completo
+- Crear demo funcional
+
+</td>
+</tr>
+</table>
 
 ---
 
-## 2. Configuración del Entorno (Anaconda)
+## 🗺️ 3. Arquitectura y Flujo del Sistema
 
-Para asegurar una ejecución estable y evitar conflictos entre versiones de librerías, este proyecto utiliza un entorno independiente creado con **Anaconda** o **Miniconda**.
-
-A continuación se describe el proceso para crear, activar e instalar las dependencias del entorno.
-
-### 2.1 Creación del Entorno
-
-Puedes crear un entorno con el nombre que tú quieras.  
-A modo de ejemplo, aquí se crea uno llamado **kit-inspector**, pero puedes reemplazarlo por cualquier otro nombre.
-
-```bash
-conda create -n kit-inspector python=3.11
+```mermaid
+graph TD
+    A[📥 Entrada: Imagen/Webcam] --> B[🤖 Modelo YOLOv8]
+    B --> C[🔍 Detección de Objetos]
+    C --> D[📋 Comparación con Kit Esperado]
+    D --> E{¿Kit Completo?}
+    E -->|Sí| F[✅ KIT COMPLETO]
+    E -->|No| G[❌ KIT INCOMPLETO]
+    G --> H[📝 Lista de Objetos Faltantes]
 ```
 
-- `-n kit-inspector` → nombre del entorno (puedes cambiarlo).
-- `python=3.11` → versión recomendada para compatibilidad con Ultralytics y OpenCV.
+### 🔄 Flujo de Procesamiento
 
-### 2.2 Activación del Entorno
+```
+┌─────────────────────┐
+│  Imagen o Webcam    │
+└──────────┬──────────┘
+           │
+           ▼
+┌─────────────────────┐
+│   Modelo YOLOv8     │
+│ (detección de 6 cls)│
+└──────────┬──────────┘
+           │
+           ▼
+┌─────────────────────┐
+│ Comparación con Kit │
+│ esperado (PASS/FAIL)│
+└──────────┬──────────┘
+           │
+           ▼
+┌─────────────────────┐
+│ Salida visual/texto │
+│ (imagen/video + est)│
+└─────────────────────┘
+```
 
-Una vez creado el entorno, actívalo con:
+---
+
+## 📂 4. Estructura del Repositorio
+
+```
+Inspector-Completitud/
+│
+├── 📄 README.md                    # Documentación principal
+├── 📄 LICENSE                      # Licencia del proyecto
+├── 📄 .gitignore                   # Archivos ignorados
+│
+├── 📄 best.pt                      # 🤖 Modelo YOLOv8 entrenado (5.96 MB)
+│
+├── 📄 inspector_foto.py            # 📸 Demo con imagen estática
+├── 📄 inspector_webcam.py          # 🎥 Inspector con webcam en tiempo real
+│
+├── 📁 resultados/                  # Resultados y métricas
+│   ├── predicciones/               # Imágenes generadas por el modelo
+│   ├── metrics.png                 # Gráficos de entrenamiento
+│   └── confusion_matrix.png        # Matriz de confusión
+│
+└── 📁 ejemplo/                     # Imágenes de prueba
+    └── imagen_prueba.jpg
+```
+
+### 📌 Nota sobre el Modelo
+
+El archivo `best.pt` está incluido en el repositorio. Debido a su tamaño (5.96 MB), GitHub no lo muestra directamente, pero está disponible para descarga.
+
+---
+
+## 🛠️ 5. Requisitos e Instalación
+
+### 📋 Requisitos del Sistema
+
+<table>
+<tr>
+<td width="50%">
+
+**💻 Hardware**
+- CPU: Intel i5 o superior
+- RAM: 8 GB mínimo
+- GPU: NVIDIA (opcional, mejora FPS)
+- Webcam para demo en tiempo real
+
+</td>
+<td width="50%">
+
+**🐍 Software**
+- Python 3.10 o 3.11
+- Windows 10/11 o Linux
+- Anaconda/Miniconda (recomendado)
+- Git (opcional)
+
+</td>
+</tr>
+</table>
+
+---
+
+### 🚀 Instalación Rápida
+
+#### **Paso 1: Clonar el Repositorio**
 
 ```bash
+git clone https://github.com/tu-usuario/Inspector-Completitud.git
+cd Inspector-Completitud
+```
+
+#### **Paso 2: Crear Entorno Virtual**
+
+```bash
+# Crear entorno con Conda
+conda create -n kit-inspector python=3.11
+
+# Activar entorno
 conda activate kit-inspector
 ```
 
-Cada vez que desees ejecutar los scripts del proyecto, debes asegurarte de tener este entorno activado.
-
-### 2.3 Instalación de Dependencias
-
-Con el entorno ya activado, instala las librerías necesarias:
+#### **Paso 3: Instalar Dependencias**
 
 ```bash
+# Librerías principales
 pip install ultralytics opencv-python
-```
 
-Dependiendo de tu proyecto, también puedes instalar:
-
-```bash
+# Librerías adicionales (opcional)
 pip install numpy matplotlib
 ```
 
-**Nota:**
-- Ultralytics descarga automáticamente los componentes necesarios de YOLOv8 y administra internamente las dependencias del modelo.
-- Si el usuario no tiene una webcam o no desea instalar OpenCV completo, puede omitirlo; sin embargo, es obligatorio para ejecutar el script de inspección con cámara.
+#### **Paso 4: Verificar Instalación**
+
+```bash
+python -c "from ultralytics import YOLO; import cv2; print('✅ Instalación exitosa')"
+```
 
 ---
 
-## 3. Ejecución del Código
+### 📥 Descarga del Modelo
 
-Este proyecto incluye dos formas de ejecutar el inspector de completitud:
+El modelo entrenado está incluido en el repositorio: [`best.pt`](best.pt) **(5.96 MB)**
 
-1. **Prueba con imagen estática** → [`inspector_foto.py`](inspector_foto.py)
-2. **Inspección en tiempo real con webcam** → [`inspector_webcam.py`](inspector_webcam.py)
+**Formas de obtener el modelo:**
 
-Antes de ejecutar cualquier script, asegúrate de:
+1. **Clonar el repositorio completo** (recomendado):
+   ```bash
+   git clone https://github.com/tu-usuario/Inspector-Completitud.git
+   ```
+   El archivo `best.pt` se descarga automáticamente.
 
-- Tener el entorno activado (`conda activate kit-inspector`)
-- Colocar la ruta correcta del modelo (`MODEL_PATH`)
-- En el caso del script por imagen, definir la ruta de la imagen (`IMAGE_PATH`)
+2. **Descargar solo el archivo**:
+   - Navega a [`best.pt`](best.pt) en GitHub
+   - Haz clic en **"Download raw file"** (esquina superior derecha)
 
-### 3.1 Rutas Importantes (MODEL_PATH y IMAGE_PATH)
+---
 
-#### 📥 Descarga del Modelo
+## 📸 6. Dataset y Entrenamiento del Modelo
 
-El modelo entrenado está disponible en el repositorio: [`best.pt`](best.pt)
+### 📊 Dataset Personalizado
 
-Ambas rutas son totalmente **personalizables**.  
-El modelo **NO necesita estar en una carpeta fija**, y la imagen **puede estar en cualquier ubicación** de tu computador.
+El dataset fue creado y gestionado con **Roboflow**, incluyendo:
 
-Ejemplo de configuración:
+- **Total de imágenes**: ~300
+- **Anotaciones**: Bounding boxes manuales
+- **Versiones**: v1 → v6 (iteraciones de mejora)
+- **Formato**: YOLOv8
+
+### 🎨 Distribución de Clases
+
+| Clase | Cantidad de Imágenes | Dificultad |
+|-------|---------------------|-----------|
+| 👓 lentes | ~80 | ⭐ Fácil |
+| 💳 tarjeta | ~75 | ⭐ Fácil |
+| 🎧 headset | ~70 | ⭐⭐ Media |
+| 🔌 enchufe | ~65 | ⭐⭐ Media |
+| 🔑 llave | ~50 | ⭐⭐⭐ Difícil |
+| ✏️ objects | ~45 | ⭐⭐⭐ Difícil |
+
+### 🏋️ Proceso de Entrenamiento
 
 ```python
-MODEL_PATH = r"C:\ruta\hacia\tu\modelo\best.pt"
-IMAGE_PATH = r"C:\ruta\de\la\imagen\foto1.jpg"
+from ultralytics import YOLO
+
+# Modelo base
+model = YOLO("yolov8n.pt")
+
+# Entrenamiento
+model.train(
+    data="dataset/data.yaml",
+    epochs=30,
+    imgsz=640,
+    batch=8,
+    project="Vision_artificial",
+    name="kit_model_refinado"
+)
 ```
 
-### 3.2 Prueba con Imagen Estática
+**Resultado:** Modelo [`best.pt`](best.pt) con métricas optimizadas.
 
-Ejecuta el script:
+---
+
+## ▶️ 7. Uso del Proyecto
+
+### 📸 7.1 Demo con Imagen Estática
+
+**Archivo:** [`inspector_foto.py`](inspector_foto.py)
+
+#### 🔧 Configuración
+
+Edita las rutas en el script:
+
+```python
+MODEL_PATH = "best.pt"  # Ruta al modelo
+IMAGE_PATH = "ejemplo/imagen_prueba.jpg"  # Ruta a tu imagen
+```
+
+#### ▶️ Ejecución
 
 ```bash
 python inspector_foto.py
 ```
 
-El script:
-- Carga el modelo YOLOv8.
-- Procesa la imagen indicada en `IMAGE_PATH`.
-- Muestra detecciones y el reporte de objetos faltantes.
+#### ✅ Resultado
 
-### 3.3 Inspección con Webcam
+- Ventana con detecciones en tiempo real
+- Bounding boxes con clases y confianza
+- Imagen guardada en `/resultados/`
 
-Ejecuta:
+---
+
+### 🎥 7.2 Inspector con Webcam (Tiempo Real)
+
+**Archivo:** [`inspector_webcam.py`](inspector_webcam.py)
+
+#### 🔧 Configuración
+
+```python
+MODEL_PATH = "best.pt"  # Ruta al modelo
+```
+
+#### ▶️ Ejecución
 
 ```bash
 python inspector_webcam.py
 ```
 
-El script:
-- Abre la cámara web.
-- Detecta objetos en tiempo real.
-- Compara con la lista esperada del kit.
-- Muestra un estado PASS / FAIL en pantalla.
+#### 🎮 Controles
 
-**Para cerrar la ventana, presiona Q.**
+- **Q**: Cerrar la aplicación
+- **ESC**: Salir
+
+#### 📊 Información en Pantalla
+
+```
+┌─────────────────────────────────┐
+│  🎥 Inspector de Completitud    │
+├─────────────────────────────────┤
+│  enchufe: 1/1  ✅               │
+│  headset: 1/1  ✅               │
+│  lentes: 1/1   ✅               │
+│  llave: 0/1    ❌               │
+│  objects: 1/1  ✅               │
+│  tarjeta: 1/1  ✅               │
+├─────────────────────────────────┤
+│  Estado: KIT INCOMPLETO ❌      │
+│  Faltantes: llave               │
+│  FPS: 12.5                      │
+└─────────────────────────────────┘
+```
+
+---
+
+### ⚙️ Ajustes Avanzados
+
+<details>
+<summary><b>Clic para ver configuraciones opcionales</b></summary>
+
+#### 🎚️ Ajustar Confianza Mínima
+
+```python
+results = model(frame, conf=0.25)  # Más detecciones
+results = model(frame, conf=0.50)  # Menos falsos positivos
+```
+
+#### 📹 Cambiar Cámara
+
+```python
+cap = cv2.VideoCapture(0)  # Cámara predeterminada
+cap = cv2.VideoCapture(1)  # Cámara secundaria
+```
+
+#### 📝 Modificar Kit Esperado
+
+```python
+KIT_DEFINITION = {
+    "enchufe": 1,
+    "headset": 1,
+    "lentes": 1,
+    "llave": 2,      # Requiere 2 llaves
+    "objects": 1,
+    "tarjeta": 1
+}
+```
+
+</details>
 
 ---
 
-## 4. Video de Presentación
+## 📊 8. Métricas y Resultados
 
-El siguiente video resume la metodología, funcionamiento del sistema de inspección y principales resultados obtenidos:
+### 🎯 Resultados Globales
 
-🔗 **Video de presentación:**  
-[Haz clic aquí para ver el video](URL_DEL_VIDEO)
+<div align="center">
+
+| Métrica | Valor | Interpretación |
+|---------|-------|----------------|
+| **Precision** | 0.95 | Casi nunca se equivoca |
+| **Recall** | 0.84 | Detecta la mayoría de objetos |
+| **mAP@50** | 0.91 | Excelente en IoU=0.5 |
+| **mAP@50-95** | 0.82 | Robusto en todos los umbrales |
+
+</div>
+
+### 📈 Desempeño por Clase
+
+```
+👓 lentes     ████████████████████ 0.98  ⭐⭐⭐⭐⭐
+💳 tarjeta    ███████████████████▌ 0.99  ⭐⭐⭐⭐⭐
+🎧 headset    ███████████████████  0.94  ⭐⭐⭐⭐
+🔌 enchufe    █████████████████    0.86  ⭐⭐⭐⭐
+🔑 llave      ███████████████▌     0.93  ⭐⭐⭐
+✏️ objects    ████████████         0.61  ⭐⭐
+```
+
+### ⚡ Rendimiento en Tiempo Real
+
+| Hardware | FPS | Uso |
+|----------|-----|-----|
+| 💻 CPU Intel i5 | 8-15 FPS | Funcional |
+| 🎮 GPU NVIDIA RTX | 25-45 FPS | Óptimo |
 
 ---
 
-## 5. Integrantes
+## ⚠️ 9. Limitaciones y Trabajo Futuro
 
-| Nombre | Email |
-|--------|-------|
-| Bastián Gálvez | bastian.galvez@mayor.cl |
-| Bruno Meza | bruno.meza@mayor.cl |
-| Miguel Retamal | miguel.retamal@mayor.cl |
-| Diego Villalón | diego.villalong@mayor.cl |
+### 🚧 Limitaciones Actuales
+
+<table>
+<tr>
+<td width="50%">
+
+**📊 Dataset**
+- Variabilidad limitada en algunos objetos
+- Pocas imágenes de llave y lápiz
+- Sensible a iluminación extrema
+
+</td>
+<td width="50%">
+
+**⚙️ Sistema**
+- Velocidad limitada en CPU
+- Objetos delgados difíciles de detectar
+- Solo reconoce objetos específicos
+
+</td>
+</tr>
+</table>
+
+### 🚀 Mejoras Futuras
+
+- 🌱 **Aumentar dataset** con más variaciones
+- 💡 **Data augmentation** avanzado (blur, noise)
+- 📦 **Soporte para más objetos** del kit
+- 🖥️ **Interfaz gráfica** con Tkinter/Streamlit
+- 📱 **Despliegue en dispositivos embebidos** (Raspberry Pi)
+- 🧠 **Entrenamiento continuo** con nuevos datos
 
 ---
+
+## 🎥 Video de Presentación
+
+<div align="center">
+
+[![Video de Presentación](https://img.shields.io/badge/▶️_Ver_Demo-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](URL_DEL_VIDEO)
+
+**Duración:** 3-5 minutos | **Contenido:** Funcionamiento completo del sistema
+
+</div>
+
+---
+
+## 👥 10. Créditos y Autores
+
+<div align="center">
+
+### 🎓 Equipo de Desarrollo
+
+</div>
+
+<table align="center">
+<tr>
+<td align="center" width="25%">
+<img src="https://github.com/identicons/bastiangalvez.png" width="100px;" alt="Bastián"/>
+<br />
+<b>Bastián Gálvez</b>
+<br />
+<a href="mailto:bastian.galvez@mayor.cl">📧 Email</a>
+</td>
+<td align="center" width="25%">
+<img src="https://github.com/identicons/brunomeza.png" width="100px;" alt="Bruno"/>
+<br />
+<b>Bruno Meza</b>
+<br />
+<a href="mailto:bruno.meza@mayor.cl">📧 Email</a>
+</td>
+<td align="center" width="25%">
+<img src="https://github.com/identicons/miguelretamal.png" width="100px;" alt="Miguel"/>
+<br />
+<b>Miguel Retamal</b>
+<br />
+<a href="mailto:miguel.retamal@mayor.cl">📧 Email</a>
+</td>
+<td align="center" width="25%">
+<img src="https://github.com/identicons/diegovillalon.png" width="100px;" alt="Diego"/>
+<br />
+<b>Diego Villalón</b>
+<br />
+<a href="mailto:diego.villalong@mayor.cl">📧 Email</a>
+</td>
+</tr>
+</table>
+
+---
+
+<div align="center">
+
+### 🛠️ Tecnologías Utilizadas
+
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![YOLOv8](https://img.shields.io/badge/YOLOv8-00D4FF?style=for-the-badge&logo=yolo&logoColor=white)
+![OpenCV](https://img.shields.io/badge/OpenCV-5C3EE8?style=for-the-badge&logo=opencv&logoColor=white)
+![Roboflow](https://img.shields.io/badge/Roboflow-6f42c1?style=for-the-badge&logo=roboflow&logoColor=white)
+
+---
+
+### 📄 Licencia
+
+Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) para más detalles.
+
+---
+
+</div>
