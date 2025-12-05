@@ -507,38 +507,16 @@ KIT_DEFINITION = {
 
 </div>
 
-<table align="center">
-<tr>
-<td align="center" width="25%">
-<img src="https://github.com/identicons/bastiangalvez.png" width="100px;" alt="Bastián"/>
-<br />
-<b>Bastián Gálvez</b>
-<br />
-<a href="mailto:bastian.galvez@mayor.cl">📧 Email</a>
-</td>
-<td align="center" width="25%">
-<img src="https://github.com/identicons/brunomeza.png" width="100px;" alt="Bruno"/>
-<br />
-<b>Bruno Meza</b>
-<br />
-<a href="mailto:bruno.meza@mayor.cl">📧 Email</a>
-</td>
-<td align="center" width="25%">
-<img src="https://github.com/identicons/miguelretamal.png" width="100px;" alt="Miguel"/>
-<br />
-<b>Miguel Retamal</b>
-<br />
-<a href="mailto:miguel.retamal@mayor.cl">📧 Email</a>
-</td>
-<td align="center" width="25%">
-<img src="https://github.com/identicons/diegovillalon.png" width="100px;" alt="Diego"/>
-<br />
-<b>Diego Villalón</b>
-<br />
-<a href="mailto:diego.villalong@mayor.cl">📧 Email</a>
-</td>
-</tr>
-</table>
+---
+
+## 👥 10. Créditos y Autores
+
+| Integrante | Email |
+|------------|-------|
+| Bastián Gálvez | bastian.galvez@mayor.cl |
+| Bruno Meza | bruno.meza@mayor.cl |
+| Miguel Retamal | miguel.retamal@mayor.cl |
+| Diego Villalón | diego.villalong@mayor.cl |
 
 ---
 
