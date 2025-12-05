@@ -9,9 +9,7 @@ from collections import Counter
 MODEL_PATH = r"C:\Users\HP\OneDrive\Escritorio\UNIVERSIDAD\8vo Semestre\Visión Artificial\Parcial 3\best\best.pt"
 
 # 2) Ruta a una imagen de prueba (por ejemplo, una de images/val)
-#IMAGE_PATH = r"C:\Users\HP\OneDrive\Imágenes\kits_dataset\Imagen 1.jpg"
-#IMAGE_PATH = r"C:\Users\HP\OneDrive\Imágenes\kits_dataset\Imagen 2.jpg"
-IMAGE_PATH = r"C:\Users\HP\OneDrive\Imágenes\kits_dataset\Imagen 3.jpg"
+IMAGE_PATH = r"C:\Users\HP\OneDrive\Imágenes\kits_dataset\Imagen 1.jpg"
 
 # 3) Carpeta donde se guardará la imagen anotada
 OUTPUT_PROJECT = r"C:\Users\HP\OneDrive\Escritorio\UNIVERSIDAD\8vo Semestre\Visión Artificial\Segunda Imagen"
@@ -247,3 +245,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
