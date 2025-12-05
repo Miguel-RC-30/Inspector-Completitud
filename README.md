@@ -47,21 +47,22 @@ El sistema identifica los siguientes objetos:
 <details open>
 <summary><b>Clic para expandir/contraer</b></summary>
 
-1. [🎯 Objetivos del Proyecto](#-2-objetivos-del-proyecto)
-2. [🗺️ Arquitectura y Flujo del Sistema](#️-3-arquitectura-y-flujo-del-sistema)
-3. [📂 Estructura del Repositorio](#-4-estructura-del-repositorio)
-4. [🛠️ Requisitos e Instalación](#️-5-requisitos-e-instalación)
-5. [📸 Dataset y Entrenamiento](#-6-dataset-y-entrenamiento-del-modelo)
-6. [▶️ Uso del Proyecto](#️-7-uso-del-proyecto)
-7. [📊 Métricas y Resultados](#-8-métricas-y-resultados)
-8. [⚠️ Limitaciones y Trabajo Futuro](#️-9-limitaciones-y-trabajo-futuro)
-9. [👥 Créditos y Autores](#-10-créditos-y-autores)
+1. [🎯 Objetivos del Proyecto](#-1-objetivos-del-proyecto)
+2. [🗺️ Arquitectura y Flujo del Sistema](#️-2-arquitectura-y-flujo-del-sistema)
+3. [📂 Estructura del Repositorio](#-3-estructura-del-repositorio)
+4. [🛠️ Requisitos e Instalación](#️-4-requisitos-e-instalación)
+5. [📸 Dataset y Entrenamiento](#-5-dataset-y-entrenamiento-del-modelo)
+6. [▶️ Uso del Proyecto](#️-6-uso-del-proyecto)
+7. [📊 Métricas y Resultados](#-7-métricas-y-resultados)
+8. [⚠️ Limitaciones y Trabajo Futuro](#️-8-limitaciones-y-trabajo-futuro)
+9. [🎥 Video de Presentación](#-9-Video-de-Presentación)
+10. [👥 Créditos y Autores](#-10-créditos-y-autores)
 
 </details>
 
 ---
 
-## 🎯 2. Objetivos del Proyecto
+## 🎯 1. Objetivos del Proyecto
 
 ### 📌 Objetivo General
 
@@ -110,7 +111,7 @@ Implementar un modelo de detección de objetos que identifique los componentes d
 
 ---
 
-## 🗺️ 3. Arquitectura y Flujo del Sistema
+## 🗺️ 2. Arquitectura y Flujo del Sistema
 
 ```mermaid
 graph TD
@@ -151,7 +152,7 @@ graph TD
 
 ---
 
-## 📂 4. Estructura del Repositorio
+## 📂 3. Estructura del Repositorio
 
 ```
 Inspector-Completitud/
@@ -180,7 +181,7 @@ El archivo `best.pt` está incluido en el repositorio. Debido a su tamaño (5.96
 
 ---
 
-## 🛠️ 5. Requisitos e Instalación
+## 🛠️ 4. Requisitos e Instalación
 
 ### 📋 Requisitos del Sistema
 
@@ -264,7 +265,7 @@ El modelo entrenado está incluido en el repositorio: [`best.pt`](best.pt) **(5.
 
 ---
 
-## 📸 6. Dataset y Entrenamiento del Modelo
+## 📸 5. Dataset y Entrenamiento del Modelo
 
 ### 📊 Dataset Personalizado
 
@@ -309,9 +310,9 @@ model.train(
 
 ---
 
-## ▶️ 7. Uso del Proyecto
+## ▶️ 6. Uso del Proyecto
 
-### 📸 7.1 Demo con Imagen Estática
+### 📸 6.1 Demo con Imagen Estática
 
 **Archivo:** [`inspector_foto.py`](inspector_foto.py)
 
@@ -338,7 +339,7 @@ python inspector_foto.py
 
 ---
 
-### 🎥 7.2 Inspector con Webcam (Tiempo Real)
+### 🎥 6.2 Inspector con Webcam (Tiempo Real)
 
 **Archivo:** [`inspector_webcam.py`](inspector_webcam.py)
 
@@ -416,7 +417,7 @@ KIT_DEFINITION = {
 
 ---
 
-## 📊 8. Métricas y Resultados
+## 📊 7. Métricas y Resultados
 
 ### 🎯 Resultados Globales
 
@@ -451,7 +452,7 @@ KIT_DEFINITION = {
 
 ---
 
-## ⚠️ 9. Limitaciones y Trabajo Futuro
+## ⚠️ 8. Limitaciones y Trabajo Futuro
 
 ### 🚧 Limitaciones Actuales
 
@@ -487,7 +488,7 @@ KIT_DEFINITION = {
 
 ---
 
-## 🎥 Video de Presentación
+## 🎥 9. Video de Presentación
 
 <div align="center">
 
