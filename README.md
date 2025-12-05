@@ -513,12 +513,14 @@ KIT_DEFINITION = {
 
 <div align="center">
 
+
 ### 🛠️ Tecnologías Utilizadas
 
-![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![YOLOv8](https://img.shields.io/badge/YOLOv8-00D4FF?style=for-the-badge&logo=yolo&logoColor=white)
-![OpenCV](https://img.shields.io/badge/OpenCV-5C3EE8?style=for-the-badge&logo=opencv&logoColor=white)
-![Roboflow](https://img.shields.io/badge/Roboflow-6f42c1?style=for-the-badge&logo=roboflow&logoColor=white)
+[![Anaconda](https://img.shields.io/badge/Anaconda-44A833?style=for-the-badge&logo=anaconda&logoColor=white)](https://www.anaconda.com/)
+[![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
+[![OpenCV](https://img.shields.io/badge/OpenCV-5C3EE8?style=for-the-badge&logo=opencv&logoColor=white)](https://opencv.org/)
+[![Roboflow](https://img.shields.io/badge/Roboflow-6f42c1?style=for-the-badge&logo=roboflow&logoColor=white)](https://roboflow.com/)
+[![Ultralytics](https://img.shields.io/badge/Ultralytics_YOLOv8-00D4FF?style=for-the-badge&logo=yolo&logoColor=white)](https://github.com/ultralytics/ultralytics)
 
 ---
 
