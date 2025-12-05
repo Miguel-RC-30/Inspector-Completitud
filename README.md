@@ -501,16 +501,6 @@ KIT_DEFINITION = {
 
 ## 👥 10. Créditos y Autores
 
-<div align="center">
-
-### 🎓 Equipo de Desarrollo
-
-</div>
-
----
-
-## 👥 10. Créditos y Autores
-
 | Integrante | Email |
 |------------|-------|
 | Bastián Gálvez | bastian.galvez@mayor.cl |
