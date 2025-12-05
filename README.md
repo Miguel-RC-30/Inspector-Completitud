@@ -5,7 +5,6 @@
 [![Anaconda](https://img.shields.io/badge/Anaconda-44A833?logo=anaconda&logoColor=white)](https://www.anaconda.com/)
 [![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/)
 [![YOLOv8](https://img.shields.io/badge/YOLOv8-Ultralytics-00D4FF?logo=yolo&logoColor=white)](https://github.com/ultralytics/ultralytics)
-[![OpenCV](https://img.shields.io/badge/OpenCV-4.x-5C3EE8?logo=opencv&logoColor=white)](https://opencv.org/)
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 **Sistema de Visión Artificial para verificación automática de completitud de kits**
