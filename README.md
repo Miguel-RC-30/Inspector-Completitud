@@ -491,7 +491,7 @@ KIT_DEFINITION = {
 
 <div align="center">
 
-[![Video de Presentación](https://drive.google.com/drive/folders/1RXk7xu1j3GCMyBRRy-pfG9NR_yxp8fPY?usp=sharing)](URL_DEL_VIDEO)
+[![Video de Presentación](https://drive.google.com/drive/folders/1RXk7xu1j3GCMyBRRy-pfG9NR_yxp8fPY?usp=sharing)](https://drive.google.com/drive/folders/1RXk7xu1j3GCMyBRRy-pfG9NR_yxp8fPY?usp=sharing)
 
 **Duración:** 15 minutos | **Contenido:** Problema, motivación, dataset, funcionamiento completo y en vivo del sistema conclusiones
 
